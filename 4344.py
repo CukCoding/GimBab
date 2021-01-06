@@ -1,4 +1,5 @@
 avg = 0
+result = []
 
 testSize = int(input())
 
@@ -14,6 +15,8 @@ for i in range(0, testSize):
         if arr[j] > avg:
             cnt += 1
 
-    result = (cnt / arr[0]) * 100
-    print('%.3f?' % result)
+    result.append((cnt / arr[0]) * 100)
+
+for i in result:
+    print('%.3f' % i + "%")
 
