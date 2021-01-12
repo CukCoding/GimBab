@@ -12,8 +12,8 @@
 
     그래서 함수로 넘겨줄때 for문 i, j의 범위는 입력받은 가로, 세로에서 -7만큼 한 갯수로 이중 포문을 작동
 
-    result 의 초기값이 2501인 이유는 가로 세로 각각 최댓값이 50이므로
-    일치하지 않는 경우가 50 * 50 한 2500 보다 1개 더 많아야지 최솟값을 정확하게 측정가능
+    result 의 초기값이 65인 이유는 가로 세로 각각 최댓값이 65이므로
+    일치하지 않는 경우가 8 * 8 한 65 보다 1개 더 많아야지 최솟값을 정확하게 측정가능
 '''
 
 blackChess = [['B', 'W', 'B', 'W', 'B', 'W', 'B', 'W'],
@@ -54,7 +54,7 @@ def blackboard(x, y) :
 hei, wid = input().split()
 wid = int(wid)
 hei = int(hei)
-result = 2501
+result = 65
 
 matrix = [list(map(str, input())) for _ in range(hei)]
 
