@@ -78,6 +78,16 @@ while True :
 
 print(meeting)
 '''
+
+'''
+    3번 코드 : 틀렸습니다.
+    원리 : 시작시간을 먼저 오름차순 정렬, 그 후에 끝나는 시간을 오름차순 정렬하고, 끝나는 시간을 기준으로 빨리 끝나는 회의만
+        고르면 하나의 회의실을 최대한 많이 사용할 수 있다.
+        
+    for문을 두번 돌려서 0번째 열과 1번째 열(각각 시작시간, 끝나는시간)을 퀵 솔트로 정렬하고,
+    회의 시작시간이 endTime보다 클 경우, 카운트를 하면서 endTime에 선택된 회의의 끝시간을 새로 집어넣는다.
+    그렇게 for문을 테스트 케이스 만큼 다 돌리면 최대한의 회의실 이용 횟수가 나온다(= metting)
+'''
 def setPivot(start, mid, end, index) :
     if arr[mid][index] < arr[start][index] :
         swap(mid, start)
@@ -141,5 +151,7 @@ for i in range(0, cnt) :
     if arr[i][0] >= endTime :
         meeting += 1
         endTime = arr[i][1]
+
+print(arr)
 print(meeting)
 
