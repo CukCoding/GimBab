@@ -28,11 +28,9 @@ def checkNum(x, y) :
 
     prob.append(temp)
 
-def inputNumber(cnt, number) :
-    print("함수진입")
-
-    x = blank[cnt][0]
-    y = blank[cnt][1]
+def inputNumber(location, number) :
+    x = blank[location][0]
+    y = blank[location][1]
     quadX = (x // 3) * 3
     quadY = (y // 3) * 3
     cnt = 0
@@ -51,29 +49,24 @@ def inputNumber(cnt, number) :
 
     if cnt > 0 :
         return False
-    elif cnt + 1 > blankCnt :
+    elif location + 1 == blankCnt :
+        sudoku[x][y] = number
         return True
     else :
         sudoku[x][y] = number
-        for i in range(1, prob[cnt + 1][0] + 1) :
-            if inputNumber(cnt + 1, prob[cnt + 1][i]) == False :
+        for i in range(1, prob[location + 1][0] + 1) :
+            if inputNumber(location + 1, prob[location + 1][i]) == False :
                 continue
             else :
-                break
+                return True
 
-def solve(blankCnt) :
-    for i in range(blankCnt) :
-        if prob[i][0] == 1 :
-            sudoku[blank[i][0]][blank[i][1]] = prob[i][1]
-        else :
-            for j in range(1, prob[i][0] + 1) :
-                if inputNumber(i, prob[i][j]) == False :
-                    continue
-                else :
-                    break
-            if sudoku[blank[blankCnt-1][0]][blank[blankCnt-1][1]] != 0 :
-                break
+        sudoku[x][y] = 0
+        return False
 
+def solve() :
+    for i in range(1, prob[0][0]+1) :
+        if inputNumber(0, prob[0][i]) == False :
+            continue
 
 
 blank = []
@@ -87,14 +80,12 @@ for i in range(9) :
             blankCnt += 1
             blank.append([i, j])
 
-print("빈칸갯수", blankCnt)
 
 for i in blank :
     checkNum(i[0], i[1])
 
-print(prob)
 
-solve(blankCnt)
+solve()
 
 for i in sudoku :
     for j in i :
