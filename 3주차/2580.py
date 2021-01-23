@@ -1,3 +1,6 @@
+'''
+    파이썬3에서는 시간초과, 하지만 pypy3 에서는 정상으로 뜸
+'''
 from sys import stdin
 
 def checkNum(x, y) :
@@ -63,11 +66,6 @@ def inputNumber(location, number) :
         sudoku[x][y] = 0
         return False
 
-def solve() :
-    for i in range(1, prob[0][0]+1) :
-        if inputNumber(0, prob[0][i]) == False :
-            continue
-
 
 blank = []
 prob = []
@@ -84,8 +82,9 @@ for i in range(9) :
 for i in blank :
     checkNum(i[0], i[1])
 
-
-solve()
+for i in range(1, prob[0][0]+1) :
+    if inputNumber(0, prob[0][i]) == False :
+        continue
 
 for i in sudoku :
     for j in i :
