@@ -44,8 +44,37 @@ def sort(left, right) :
     sort(left, i - 1)
     sort(i + 1, right)
 
-def search(gap) :
-    print("차이")
+def search(left, right) :
+    result = 0
+    maxGap = right - left
+    minGap = 1
+    while True :
+        mid = minGap + ((maxGap - minGap) // 2)
+        before = left
+        cnt = 1
+
+        for i in loc[1:]:
+            sub = i - before
+            if sub >= mid:
+                cnt += 1
+                before = i
+
+        if minGap == maxGap :
+            if cnt < wifi :
+                result = mid - 1
+                break
+            else :
+                result = mid + 1
+                break
+        else :
+            if cnt > wifi:
+                minGap = mid + 1
+            elif cnt < wifi:
+                maxGap = mid
+            else:
+                minGap = mid + 1
+
+    return result
 
 house, wifi = stdin.readline().split()
 
@@ -58,8 +87,8 @@ for i in range(house) :
     loc.append(int(stdin.readline()))
 
 sort(0, house - 1)
-maxGap = loc[house-1] - loc[0]
 
-search(maxGap)
-
-print(loc)
+if wifi == 2 :
+    print(loc[house - 1] - loc[0])
+else :
+    print(search(loc[0], loc[house - 1]))
