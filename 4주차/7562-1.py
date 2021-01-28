@@ -12,6 +12,8 @@
 
     마지막 결과문에서 내가 원하는 도착지점의 좌표에 들어가있는 숫자를 프린트 하면
     최솟값을 얻을 수 있다.
+
+    해당 좌표값 도착시 큐를 init함으로써 큐를 전부 비우고 while문에서 탈출하면서 solve()함수가 종료된다
 '''
 from sys import stdin
 from queue import Queue
@@ -34,6 +36,9 @@ def solve() :
             if check(tx, ty) == 1 and chess[tx][ty] == 0 :
                 chess[tx][ty] = chess[x][y] + 1
                 visit.put([tx,ty])
+                if tx == pos[2][0] and ty == pos[2][1] :
+                    visit.__init__()
+                    break
 
 
 moveX = [-2, -1, 1, 2, -2, -1, 1, 2]
