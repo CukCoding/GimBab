@@ -11,8 +11,16 @@
     각각의 단지수는 createGroup()에서 visit배열이 빌때까지 탐색하고 그 숫자만큼 저장해준다.
 
     현재 sort를 내장 sort함수로 하고 있는데, 곧 직접 구현 sort로 수정할 예정
+    ----------------------------------------------------------------------------
+    단지 갯수가 엄청 많은게 아니므로 버블소트를 이용해서 오름차순 정렬을 해준다.
+    시간차이는 내장 소트와 많이 나지않는다.
 '''
 from sys import stdin
+def swap(a, b) :
+    temp = result[a]
+    result[a] = result[b]
+    result[b] = temp
+
 def check(x, y) :
     if x >= 0 and y >= 0 and x < size and y < size :
         return 1
@@ -56,7 +64,14 @@ visit = []
 map = [list(map(int, stdin.readline().strip())) for _ in range(size)]
 
 total = solve()
+'''
 result.sort()
+'''
+for i in range(total - 1) :
+    for j in range(total - 1) :
+        if result[j] > result[j+1]:
+            swap(j, j+1)
+
 print(total)
 for i in range(total) :
     print(result[i])
