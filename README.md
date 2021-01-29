@@ -1,4 +1,4 @@
-# <u>파이썬 스터디 코드입니다</u>
+# ![screenshot](./img/title.png)
 
 
 
