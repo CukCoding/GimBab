@@ -17,6 +17,7 @@ def solve(start) :
                 if min[i] > len + temp :
                     min[i] = len + temp
                     q.append([i, len + matrix[pos][i]])
+                    print(q)
 
 
 V, E = map(int, stdin.readline().split())
