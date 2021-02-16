@@ -8,7 +8,7 @@ def checkXY(num) : #해당 넘버의 x,y 좌표를 구하기 위한 함수
                 return i, j
 bingo = [list(map(int, r().split())) for _ in range(5)] #빙고 입력판 배열
 call = [list(map(int, r().split())) for _ in range(5)] #사회자가 부르는 순서 배열
-wid = [0 for _ in range(5)] #가로 행마다 채워들어갈때 갯수 체크
+wid = [0 for _ in range(5)] #가로 행 마다 채워들어갈때 갯수 체크
 hei = [0 for _ in range(5)] #세로 열 마다 채워들어갈때 갯수 체크
 leftUp = 0 #왼쪽 위 -> 오른쪽 아래 대각선 채워지는 갯수 체크
 rightUp = 0 #왼쪽 아래 -> 오른쪽 위 대각선 채워지는 갯수 체크
