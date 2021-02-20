@@ -1,4 +1,3 @@
-#약수 구하는 과정에서 아무래도 시간초과 뜨는듯...
 import sys
 r = sys.stdin.readline
 def uclid(a, b) :
@@ -30,9 +29,19 @@ for j in range(2, N) :
 
 result = []
 
-for j in range(2, gap + 1) :
-    if gap % j == 0:
-        result.append(j)
+d = 1
+while d * d <= gap :
+    if gap % d == 0 :
+        temp1 = d
+        temp2 = gap // d
+        if temp1 == temp2 :
+            result.append(temp1)
+        else :
+            result.append(temp1)
+            result.append(temp2)
+    
+    d += 1
 
-for k in result :
-    print(k, end=" ")
+result.sort()
+for k in range(1, len(result)) :
+    print(result[k], end=" ")
