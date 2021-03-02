@@ -1,3 +1,6 @@
+'''
+    정렬방법을 다시써서 while 반복문으로 비교를 시작햇으나.. 타임아웃
+'''
 import sys
 r = sys.stdin.readline
 
