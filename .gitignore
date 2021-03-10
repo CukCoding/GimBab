@@ -1,3 +1,5 @@
 #pycharm
 venv/
 .idea/
+code.iml
+src/
