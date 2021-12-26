@@ -9,7 +9,7 @@ import java.util.Queue;
     모든 순서쌍을 받은뒤 순서쌍의 첫번째 자리를 기준으로 오름차순 정렬한다.
  */
 
-public class Main {
+public class M2606 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); //버퍼리더 객체 생성
