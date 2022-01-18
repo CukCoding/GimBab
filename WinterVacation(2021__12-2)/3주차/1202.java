@@ -24,7 +24,6 @@ public class Main {
         bag = new ArrayList<>();
 
         for (int i = 0; i < N; i++) {
-            // 보석은 무조건 가격 순으로 정렬
             st = new StringTokenizer(br.readLine());
             acce[i][0] = Integer.parseInt(st.nextToken());
             acce[i][1] = Integer.parseInt(st.nextToken());
